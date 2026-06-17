@@ -1,272 +1,511 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>MYRA | Make Home Everywhere</title>
 
 <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2E2E2E">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="config.js"></script>
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --cream:#FFF8F0;
+  --warm:#FFFCF8;
+  --gold:#C9A227;
+  --sage:#7A8B6F;
+  --dark:#2E2E2E;
+  --text:#1F1F1F;
+  --muted:#777;
+  --border:#E8E0D4;
 }
 
 body{
-font-family:'Poppins',sans-serif;
-background:#FFF8F0;
-min-height:100vh;
-overflow-x:hidden;
+  font-family:'Poppins',sans-serif;
+  background:var(--cream);
+  min-height:100vh;
+  overflow-x:hidden;
+  color:var(--text);
 }
 
-.page{
-min-height:100vh;
-display:flex;
+.login-page{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1.45fr .8fr;
 }
 
-.left{
-flex:1;
-background:url('https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1600&auto=format&fit=crop') center center/cover;
-position:relative;
+.hero-side{
+  position:relative;
+  background:
+    linear-gradient(rgba(0,0,0,.18),rgba(0,0,0,.45)),
+    url("https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1800&auto=format&fit=crop")
+    center/cover no-repeat;
+  min-height:100vh;
 }
 
-.left::before{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(
-180deg,
-rgba(0,0,0,.15),
-rgba(0,0,0,.45)
-);
+.hero-brand{
+  position:absolute;
+  left:52px;
+  bottom:52px;
+  color:#fff;
 }
 
-.brand-overlay{
-position:absolute;
-left:60px;
-bottom:60px;
-z-index:2;
-color:#fff;
+.hero-brand h1{
+  font-family:'Playfair Display',serif;
+  font-size:82px;
+  letter-spacing:5px;
+  line-height:1;
 }
 
-.brand-overlay h1{
-font-family:'Playfair Display',serif;
-font-size:72px;
-letter-spacing:4px;
-margin-bottom:8px;
+.hero-brand p{
+  margin-top:14px;
+  font-size:20px;
+  font-weight:400;
 }
 
-.brand-overlay p{
-font-size:20px;
-opacity:.95;
-}
-
-.right{
-width:520px;
-background:#FFFDFB;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:40px;
+.login-side{
+  min-height:100vh;
+  background:var(--warm);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:42px;
 }
 
 .login-card{
-width:100%;
-max-width:420px;
+  width:100%;
+  max-width:430px;
+  text-align:center;
 }
 
-.logo-wrap{
-text-align:center;
-margin-bottom:20px;
+.logo-mark{
+  width:118px;
+  height:118px;
+  margin:0 auto 18px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#C9A227,#F7E8A7);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 18px 36px rgba(201,162,39,.25);
+  border:8px solid #fff;
 }
 
-.logo-circle{
-width:92px;
-height:92px;
-border-radius:50%;
-background:linear-gradient(135deg,#C9A227,#F5E3A3);
-display:flex;
-justify-content:center;
-align-items:center;
-margin:auto;
-font-size:40px;
-box-shadow:0 10px 25px rgba(0,0,0,.12);
+.logo-mark span{
+  font-family:'Playfair Display',serif;
+  font-size:58px;
+  color:#2E2E2E;
 }
 
-.brand{
-font-family:'Playfair Display',serif;
-font-size:54px;
-letter-spacing:3px;
-color:#2E2E2E;
-margin-top:16px;
+.brand-name{
+  font-family:'Playfair Display',serif;
+  font-size:58px;
+  letter-spacing:5px;
+  color:var(--dark);
+  line-height:1;
 }
 
 .tagline{
-margin-top:6px;
-font-size:15px;
-color:#7A8B6F;
+  margin-top:10px;
+  color:var(--sage);
+  font-size:15px;
+  letter-spacing:.5px;
 }
 
-.welcome{
-margin-top:34px;
-margin-bottom:28px;
-text-align:center;
+.gold-line{
+  width:160px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:22px auto 32px;
 }
 
 .welcome h2{
-font-family:'Playfair Display',serif;
-font-size:34px;
-color:#2E2E2E;
-margin-bottom:8px;
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+  color:var(--dark);
+  margin-bottom:8px;
 }
 
 .welcome p{
-color:#777;
-font-size:15px;
+  color:var(--muted);
+  font-size:15px;
+  margin-bottom:30px;
 }
 
 .input-box{
-margin-bottom:18px;
+  width:100%;
+  height:60px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  padding:0 18px;
+  margin-bottom:17px;
+  transition:.25s;
+}
+
+.input-box:focus-within{
+  border-color:var(--gold);
+  box-shadow:0 0 0 5px rgba(201,162,39,.10);
+}
+
+.input-box .icon{
+  font-size:22px;
+  margin-right:14px;
+  color:var(--gold);
 }
 
 .input-box input{
-width:100%;
-height:58px;
-border:1px solid #E8E0D4;
-border-radius:16px;
-padding:0 18px;
-font-size:16px;
-outline:none;
-background:#fff;
-transition:.3s;
+  width:100%;
+  border:0;
+  outline:0;
+  background:transparent;
+  font-size:15.5px;
+  color:var(--text);
+  font-family:'Poppins',sans-serif;
 }
 
-.input-box input:focus{
-border-color:#C9A227;
-box-shadow:0 0 0 4px rgba(201,162,39,.08);
+.signin-btn{
+  width:100%;
+  height:60px;
+  border:0;
+  border-radius:18px;
+  background:linear-gradient(135deg,#2E2E2E,#4A4A4A);
+  color:#fff;
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:2px;
+  margin-top:8px;
+  cursor:pointer;
+  box-shadow:0 18px 32px rgba(0,0,0,.18);
 }
 
-.login-btn{
-width:100%;
-height:58px;
-border:none;
-border-radius:16px;
-background:linear-gradient(135deg,#2E2E2E,#4A4A4A);
-color:#fff;
-font-size:17px;
-font-weight:600;
-cursor:pointer;
-margin-top:10px;
+.signin-btn:active{
+  transform:scale(.98);
 }
 
-.login-btn:hover{
-opacity:.95;
+.divider{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:26px 0;
+  color:#999;
+  font-size:14px;
 }
 
+.divider::before,
+.divider::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:var(--border);
+}
+
+.signup-btn{
+  width:100%;
+  height:58px;
+  border:0;
+  border-radius:18px;
+  background:#F7F0E6;
+  color:var(--dark);
+  font-size:15.5px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.forgot-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  margin-top:26px;
+}
+
+.forgot-row button{
+  border:0;
+  background:transparent;
+  color:#9B7B22;
+  font-size:14px;
+  font-weight:500;
+  cursor:pointer;
+}
+
+.secure-text{
+  margin-top:32px;
+  color:#9B8C7A;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:28px;
+  transform:translateX(-50%) translateY(20px);
+  background:#2E2E2E;
+  color:#fff;
+  padding:13px 20px;
+  border-radius:999px;
+  font-size:14px;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:9999;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+@media(max-width:1024px){
+  .login-page{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .hero-brand h1{
+    font-size:62px;
+  }
+
+  .login-side{
+    padding:32px;
+  }
+}
+
+@media(max-width:768px){
+  .login-page{
+    display:block;
+    min-height:100vh;
+    background:var(--cream);
+  }
+
+  .hero-side{
+    min-height:310px;
+    border-radius:0 0 34px 34px;
+  }
+
+  .hero-brand{
+    left:24px;
+    bottom:26px;
+  }
+
+  .hero-brand h1{
+    font-size:46px;
+  }
+
+  .hero-brand p{
+    font-size:15px;
+  }
+
+  .login-side{
+    min-height:auto;
+    padding:0 18px 28px;
+    background:transparent;
+    margin-top:-52px;
+    position:relative;
+    z-index:2;
+  }
+
+  .login-card{
+    max-width:100%;
+    background:rgba(255,253,251,.96);
+    border-radius:30px;
+    padding:30px 22px 28px;
+    box-shadow:0 20px 50px rgba(0,0,0,.12);
+  }
+
+  .logo-mark{
+    width:88px;
+    height:88px;
+    margin-top:-72px;
+  }
+
+  .logo-mark span{
+    font-size:42px;
+  }
+
+  .brand-name{
+    font-size:44px;
+  }
+
+  .welcome h2{
+    font-size:31px;
+  }
+
+  .input-box{
+    height:58px;
+  }
+
+  .signin-btn{
+    height:58px;
+  }
+}
+
+@media(max-width:420px){
+  .hero-side{
+    min-height:280px;
+  }
+
+  .login-card{
+    border-radius:28px;
+    padding:28px 18px 24px;
+  }
+
+  .brand-name{
+    font-size:40px;
+  }
+
+  .welcome h2{
+    font-size:29px;
+  }
+
+  .forgot-row{
+    gap:12px;
+    flex-wrap:wrap;
+  }
+}
 </style>
 </head>
+
 <body>
 
-<div class="page">
+<main class="login-page">
 
-<div class="left">
+  <section class="hero-side">
+    <div class="hero-brand">
+      <h1>MYRA</h1>
+      <p>Make Home Everywhere</p>
+    </div>
+  </section>
 
-<div class="brand-overlay">
-<h1>MYRA</h1>
-<p>Make Home Everywhere</p>
-</div>
+  <section class="login-side">
+    <div class="login-card">
 
-</div>
+      <div class="logo-mark">
+        <span>M</span>
+      </div>
 
-<div class="right">
+      <div class="brand-name">MYRA</div>
+      <div class="tagline">Make Home Everywhere</div>
+      <div class="gold-line"></div>
 
-<div class="login-card">
+      <div class="welcome">
+        <h2>Welcome Back</h2>
+        <p>Sign in to continue shopping</p>
+      </div>
 
-<div class="logo-wrap">
+      <div class="input-box">
+        <span class="icon">👤</span>
+        <input type="text" id="userName" placeholder="Enter your name" autocomplete="name">
+      </div>
 
-<div class="logo-circle">🕯️</div>
+      <div class="input-box">
+        <span class="icon">📱</span>
+        <input type="tel" id="userPhone" placeholder="Enter your phone number" maxlength="10" autocomplete="tel">
+      </div>
 
-<div class="brand">MYRA</div>
+      <button class="signin-btn" onclick="handleLogin()">SIGN IN</button>
 
-<div class="tagline">
-Make Home Everywhere
-</div>
+      <div class="divider">
+        <span>OR</span>
+      </div>
 
-</div>
+      <button class="signup-btn" onclick="handleNewUser()">New User ? Sign up</button>
 
-<div class="welcome">
-<h2>Welcome Back</h2>
-<p>Sign in to continue shopping</p>
-</div>
+      <div class="forgot-row">
+        <button onclick="forgotName()">Forgot name?</button>
+        <button onclick="forgotPhone()">Forgot phone number?</button>
+      </div>
 
-<div class="input-box">
-<input
-type="text"
-id="name"
-placeholder="Enter your name">
-</div>
+      <div class="secure-text">
+        Secure • Private • Trusted<br>
+        Premium handcrafted scented candles
+      </div>
 
-<div class="input-box">
-<input
-type="tel"
-id="phone"
-placeholder="Enter your phone number">
-</div>
+    </div>
+  </section>
 
-<button class="login-btn" onclick="loginUser()">
-SIGN IN
-</button>
+</main>
 
-</div>
-
-</div>
-
-</div>
+<div class="toast" id="toast"></div>
 
 <script>
+function showToast(message){
+  const toast = document.getElementById("toast");
+  toast.innerText = message;
+  toast.classList.add("show");
 
-function loginUser(){
-
-const name =
-document.getElementById("name").value.trim();
-
-const phone =
-document.getElementById("phone").value.trim();
-
-if(!name){
-alert("Please enter your name");
-return;
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2200);
 }
 
-if(!phone){
-alert("Please enter your phone number");
-return;
+function validatePhone(phone){
+  return /^[6-9][0-9]{9}$/.test(phone);
 }
 
-localStorage.setItem(
-CONFIG.STORAGE_KEYS.USER_NAME,
-name
-);
+function handleLogin(){
+  const name = document.getElementById("userName").value.trim();
+  const phone = document.getElementById("userPhone").value.trim();
 
-localStorage.setItem(
-CONFIG.STORAGE_KEYS.USER_PHONE,
-phone
-);
+  if(!name){
+    showToast("Please enter your name");
+    return;
+  }
 
-window.location.href =
-"home.html";
+  if(!phone){
+    showToast("Please enter your phone number");
+    return;
+  }
 
+  if(!validatePhone(phone)){
+    showToast("Please enter a valid phone number");
+    return;
+  }
+
+  const storage = CONFIG && CONFIG.STORAGE_KEYS ? CONFIG.STORAGE_KEYS : {
+    USER_NAME:"myra_user_name",
+    USER_PHONE:"myra_user_phone",
+    USER_ID:"myra_user_id"
+  };
+
+  localStorage.setItem(storage.USER_NAME, name);
+  localStorage.setItem(storage.USER_PHONE, phone);
+  localStorage.setItem(storage.USER_ID, "MYRA-" + phone);
+
+  showToast("Welcome to MYRA");
+
+  setTimeout(() => {
+    window.location.href = "home.html";
+  }, 700);
 }
 
+function handleNewUser(){
+  showToast("Enter your name and phone number, then tap SIGN IN");
+}
+
+function forgotName(){
+  showToast("Enter your phone number to continue");
+}
+
+function forgotPhone(){
+  showToast("Enter your name to continue");
+}
+
+document.getElementById("userPhone").addEventListener("input", function(){
+  this.value = this.value.replace(/\D/g,"").slice(0,10);
+});
 </script>
 
 </body>
