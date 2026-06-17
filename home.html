@@ -920,14 +920,14 @@ function renderProducts(){
 }
 
 function openProductPopup(productId){
-  const product = demoProducts.find(p => p.product_id === productId);
-  if(!product){
-    showToast("Product not found");
-    return;
-  }
+  localStorage.setItem(
+    "myra_selected_product",
+    JSON.stringify(
+      demoProducts.find(p => p.product_id === productId)
+    )
+  );
 
-  localStorage.setItem("myra_selected_product", JSON.stringify(product));
-  showToast("Product popup will open here");
+  window.openProductPopup(productId);
 }
 
 renderCategories();
