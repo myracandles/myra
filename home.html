@@ -714,7 +714,6 @@ body{
       <p>Each candle is made with care for premium home moments.</p>
     </div>
 
-```
 <div class="why-card">
   <div>🌿</div>
   <h3>Premium Fragrance</h3>
@@ -732,7 +731,6 @@ body{
   <h3>Home Feeling</h3>
   <p>Designed to make every place feel warm and peaceful.</p>
 </div>
-```
 
   </div>
 </section>
@@ -881,7 +879,7 @@ function renderProductCard(product){
   `).join("");
 
   return `
-    <div class="product-card" onclick="openProductPopup('${product.product_id}')">
+    <div class="product-card" onclick="openMyraProduct('${product.product_id}')">
       <div class="product-img">
         <img src="${product.image1}" alt="${product.name}">
         <span class="badge">${product.label}</span>
@@ -919,16 +917,24 @@ function renderProducts(){
     demoProducts.map(renderProductCard).join("");
 }
 
-function openProductPopup(productId){
-  localStorage.setItem(
-    "myra_selected_product",
-    JSON.stringify(
-      demoProducts.find(p => p.product_id === productId)
-    )
-  );
+function openMyraProduct(productId){
+  const product = demoProducts.find(p => p.product_id === productId);
 
-  window.openProductPopup(productId);
+  if(!product){
+    showToast("Product not found");
+    return;
+  }
+
+  localStorage.setItem("myra_selected_product", JSON.stringify(product));
+
+  if(typeof window.openProductPopup === "function"){
+    window.openProductPopup(productId);
+  }else{
+    showToast("Product popup file missing");
+  }
 }
+
+window.demoProducts = demoProducts;
 
 renderCategories();
 renderProducts();
