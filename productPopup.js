@@ -310,4 +310,175 @@ let myraPopupProduct=null;
 let myraCurrentImage=0;
 let selectedQty="";
 let selectedFragrance="";
+function openProductPopup(productId){
+
+let product=null;
+
+if(window.demoProducts){
+product=window.demoProducts.find(
+p=>p.product_id===productId
+);
+}
+
+if(!product){
+const saved=localStorage.getItem("myra_selected_product");
+if(saved) product=JSON.parse(saved);
+}
+
+if(!product){
+alert("Product not found");
+return;
+}
+
+myraPopupProduct=product;
+selectedFragrance=product.fragrance||"";
+selectedQty="";
+myraCurrentImage=0;
+
+const images=[
+product.image1,
+product.image2,
+product.image3,
+product.image4
+].filter(Boolean);
+
+const discount=Math.round(
+((product.mrp-product.price)/product.mrp)*100
+);
+
+const viewers=Math.floor(Math.random()*80)+20;
+
+const popup=document.createElement("div");
+popup.className="myra-popup-overlay show";
+popup.id="myraProductPopup";
+
+popup.innerHTML=`
+
+<div class="myra-popup-wrap">
+
+<div class="myra-gallery">
+
+<button class="myra-close"
+onclick="closeMyraPopup()">
+× </button>
+
+<button class="myra-arrow left"
+onclick="changeMyraImage(-1)">
+‹ </button>
+
+<button class="myra-arrow right"
+onclick="changeMyraImage(1)">
+› </button>
+
+<div class="myra-main-img"
+id="myraImageSlider">
+
+${images.map(img=>`<img src="${img}">`).join("")}
+
+</div>
+
+<div class="myra-dots">
+
+${images.map((_,i)=>`
+
+<div class="myra-dot
+${i===0?'active':''}">
+</div>
+`).join("")}
+
+</div>
+
+</div>
+
+<div class="myra-info-card">
+
+<div class="myra-product-id">
+${product.product_id}
+</div>
+
+<h1 class="myra-title">
+${product.name}
+</h1>
+
+<div class="myra-price-box">
+
+<div class="myra-mrp">
+₹${product.mrp}
+</div>
+
+<div class="myra-price">
+₹${product.price}
+</div>
+
+<div class="myra-discount">
+${discount}% OFF
+</div>
+
+</div>
+
+<div class="qty-premium-box">
+
+<div class="qty-title">
+Choose Quantity
+</div>
+
+<div class="qty-sub">
+Better value on bigger packs
+</div>
+
+<div class="option-grid">
+
+${product.quantity_options.map(q=>`
+
+<button
+class="option-btn"
+onclick="selectQty(this,'${q}')">
+
+${q}
+
+</button>
+
+`).join("")}
+
+</div>
+
+</div>
+
+<div class="myra-live">
+🔥 ${viewers} people viewing now
+</div>
+
+<div class="myra-description">
+${product.long_description}
+</div>
+
+<div class="myra-section-title">
+Fragrance
+</div>
+
+<div class="option-grid">
+
+${[
+"Vanilla",
+"Lavender",
+"Rose",
+"Jasmine",
+"Sandalwood",
+"Coffee",
+"Ocean Breeze",
+"Mixed"
+].map(f=>`
+
+<button
+class="option-btn
+${f===product.fragrance?'active':''}"
+onclick="selectFragrance(this,'${f}')">
+
+${f}
+
+</button>
+
+`).join("")}
+
+</div>
   
