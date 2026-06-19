@@ -702,7 +702,26 @@ function selectQty(btn,value){
 
   btn.classList.add("active");
 }
+function getQuantityDeal(qty, price){
+  const count = parseInt(qty);
 
+  const deals = {
+    1:{ discount:0,  msg:"💡 Increase Quantity and Lower Your Price" },
+    2:{ discount:5,  msg:"💰 You Saved" },
+    4:{ discount:10, msg:"⭐ Most Popular • You Saved" },
+    12:{ discount:15,msg:"🔥 Best Value • You Saved" },
+    24:{ discount:18,msg:"🏆 Smart Pack • Maximum Savings" },
+    50:{ discount:22,msg:"🚀 Bulk Order Special • Perfect For Events" },
+    100:{discount:25,msg:"👑 Wholesale Price • Lowest Price Per Candle" }
+  };
+
+  const deal = deals[count] || deals[1];
+  const normalTotal = price * count;
+  const finalTotal = Math.round(normalTotal - (normalTotal * deal.discount / 100));
+  const saved = normalTotal - finalTotal;
+
+  return { count, normalTotal, finalTotal, saved, discount:deal.discount, msg:deal.msg };
+}
 function myraAddToCart(){
   if(!selectedQty){
     createMyraToast("Please select quantity");
