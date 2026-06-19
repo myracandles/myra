@@ -351,7 +351,7 @@ const discount=Math.round(
 ((product.mrp-product.price)/product.mrp)*100
 );
 
-const viewers=Math.floor(Math.random()*80)+20;
+let viewers=Math.floor(Math.random()*80)+20;
 
 const popup=document.createElement("div");
 popup.className="myra-popup-overlay show";
