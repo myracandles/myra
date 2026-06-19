@@ -606,7 +606,22 @@ document.body.style.overflow="hidden";
 
 updateMyraSlider();
 
+
+/* LIVE VIEW UPDATE EVERY 4 SECONDS */
+
+const viewerBox = popup.querySelector(".myra-live");
+
+setInterval(() => {
+
+const count = Math.floor(Math.random()*80)+20;
+
+viewerBox.innerHTML =
+`👀 ${count} people viewing now`;
+
+},4000);
+
 }
+
 
 
 function createMyraToast(message){
