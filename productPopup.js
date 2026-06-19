@@ -462,7 +462,21 @@ ${q}
 `).join("")}
 
 </div>
+<div id="myraQtyPriceBox" class="qty-price-box">
 
+  <div>
+    Selected: 1 pcs
+  </div>
+
+  <div class="qty-final-price">
+    ₹${product.price}
+  </div>
+
+  <div class="qty-save-msg">
+    💡 Increase Quantity and Lower Your Price
+  </div>
+
+</div>
 </div>
 
 <div class="myra-live">
