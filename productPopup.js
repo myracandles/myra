@@ -793,9 +793,9 @@ function getQuantityDeal(qty, price){
     2:{ discount:5,  msg:"💰 You Saved" },
     4:{ discount:10, msg:"⭐ Most Popular • You Saved" },
     12:{ discount:15,msg:"🔥 Best Value • You Saved" },
-    24:{ discount:18,msg:"🏆 Smart Pack • Maximum Savings" },
-    50:{ discount:22,msg:"🚀 Bulk Order Special • Perfect For Events" },
-    100:{discount:25,msg:"👑 Wholesale Price • Lowest Price Per Candle" }
+    24:{ discount:18,msg:"🏆 Smart Pack • Big Savings" },
+    50:{ discount:22,msg:"🚀 You Saved • Perfect For Events" },
+    100:{discount:25,msg:"👑 Maximum Savings • You Saved" }
   };
 
   const deal = deals[count] || deals[1];
