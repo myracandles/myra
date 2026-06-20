@@ -778,7 +778,13 @@ Selected: ${deal.count} pcs
 </div>
 
 <div class="qty-save-msg">
-${deal.msg} ₹${deal.saved}
+${
+deal.count===50
+? `🚀 You Saved ₹${deal.saved} • Perfect For Events`
+: deal.count===100
+? `👑 Maximum Savings • You Saved ₹${deal.saved}`
+: `${deal.msg} ₹${deal.saved}`
+}
 </div>
 `;
 
