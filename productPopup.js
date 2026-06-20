@@ -570,11 +570,7 @@ ${o}
 
 </div>
 
-<div class="emotion-card">
-  <p>
-    ${product.emotional_message || "Light this candle and transform your space into a moment of calm happiness."}
-  </p>
-</div>
+
 
 <div class="shipping-card">
   Below ₹499 → Shipping ₹40
