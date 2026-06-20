@@ -736,13 +736,56 @@ function selectFragrance(btn,value){
 }
 
 function selectQty(btn,value){
-  selectedQty=value;
 
-  document.querySelectorAll(".qty-btn").forEach(b=>{
-    b.classList.remove("active");
-  });
+selectedQty=value;
 
-  btn.classList.add("active");
+document.querySelectorAll(".qty-btn").forEach(b=>{
+b.classList.remove("active");
+});
+
+btn.classList.add("active");
+
+const deal=getQuantityDeal(value,myraPopupProduct.price);
+
+const box=document.getElementById("myraQtyPriceBox");
+
+if(!box) return;
+
+if(deal.discount===0){
+
+box.innerHTML=`
+<div>
+Selected: ${deal.count} pcs
+</div>
+
+<div class="qty-final-price">
+₹${deal.finalTotal}
+</div>
+
+<div class="qty-save-msg">
+${deal.msg}
+</div>
+`;
+
+}else{
+
+box.innerHTML=`
+<div>
+Selected: ${deal.count} pcs
+</div>
+
+<div>
+<span class="qty-old-price">₹${deal.normalTotal}</span>
+<span class="qty-final-price">₹${deal.finalTotal}</span>
+</div>
+
+<div class="qty-save-msg">
+${deal.msg} ₹${deal.saved}
+</div>
+`;
+
+}
+
 }
 function getQuantityDeal(qty, price){
   const count = parseInt(qty);
