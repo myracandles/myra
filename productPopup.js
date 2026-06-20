@@ -36,10 +36,14 @@ height:100%;
 transition:transform .35s ease;
 }
 @media (min-width:768px){
+  .myra-popup-wrap{
+    max-width:430px;
+    margin:0 auto;
+    background:#fff;
+  }
 
   .myra-gallery{
-    height:70vh;
-    background:#0f0f0f;
+    height:72vh;
   }
 
   .myra-main-img img{
@@ -47,6 +51,11 @@ transition:transform .35s ease;
     object-position:center;
   }
 
+  .myra-bottom-bar{
+    max-width:430px;
+    left:50%;
+    transform:translateX(-50%);
+  }
 }
 .myra-close{
 position:absolute;
