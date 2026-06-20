@@ -544,16 +544,9 @@ Wax Type
 </div>
 
 <div class="option-grid">
-
-${["Soy Wax","Beeswax","Paraffin Wax"].map(w=>`
-
-<button
-class="option-btn ${w===product.wax_type?'active':''}">
-${w}
-</button>
-
-`).join("")}
-
+  <button class="option-btn active" disabled>
+    ${product.wax_type || "Soy Wax"}
+  </button>
 </div>
 
 <div class="myra-section-title">
