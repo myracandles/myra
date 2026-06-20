@@ -555,18 +555,14 @@ Best For
 
 <div class="option-grid">
 
-${[
+${(product.best_for || [
 "🏡 Home Decor",
 "🎁 Gift Purpose",
 "🕉️ Puja Room",
-"💕 Date Night",
-"🛁 Self Care",
-"🎉 Festival Use",
-"💼 Office Desk",
 "🧘 Meditation"
-].map(o=>`
+]).slice(0,4).map(o=>`
 
-<button class="option-btn active">
+<button class="option-btn active" disabled>
 ${o}
 </button>
 
