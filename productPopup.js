@@ -573,9 +573,9 @@ ${o}
 
 
 <div class="shipping-card">
-  Below ₹499 → Shipping ₹40
+  🚚 Free Shipping on Orders ₹499+
   <br>
-  Above ₹499 → Free Shipping
+  📦 Flat ₹40 Shipping on Orders Below ₹499
 </div>
 
 <div class="myra-section-title">
