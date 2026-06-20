@@ -580,11 +580,12 @@ ${o}
 </div>
 
 
-
 <div class="shipping-card">
   🚚 Free Shipping on Orders ₹499+
   <br>
   📦 Flat ₹40 Shipping on Orders Below ₹499
+  <br>
+  🚛 Estimated Delivery 3–7 Days
 </div>
 
 <div class="myra-section-title">
