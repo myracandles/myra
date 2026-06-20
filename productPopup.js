@@ -219,9 +219,16 @@ user-select:none;
 touch-action:manipulation;
 }
 .option-btn.active{
-background:#FFF8E6;
-border:1px solid #D4AF37;
+background:linear-gradient(135deg,#FFF8E6,#FFF3C4);
+border:2px solid #D4AF37;
 color:#8B6914;
+
+box-shadow:
+0 0 0 1px rgba(212,175,55,.25),
+0 8px 20px rgba(212,175,55,.25),
+0 0 18px rgba(212,175,55,.20);
+
+transform:translateY(-2px);
 }
 .shipping-card{
 background:#F5F7FF;
