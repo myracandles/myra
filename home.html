@@ -888,7 +888,7 @@ function goProfile(){
 function renderCategories(){
   document.getElementById("categoryList").innerHTML =
     categories.map(c => `
-      <div class="category-card" onclick="goProducts()">
+      <div class="category-card" onclick="goCategory()">
         <div class="category-icon">${c.icon}</div>
         <span>${c.name}</span>
       </div>
