@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Favourites | MYRA</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2E2E2E">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="config.js"></script>
+<link rel="stylesheet" href="common.css?v=1">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+:root{
+--cream:#FFF8F0;
+--gold:#C9A227;
+--dark:#2E2E2E;
+--sage:#7A8B6F;
+--border:#E8E0D4;
+--green:#059669;
+}
+
+body{
+background:var(--cream);
+color:var(--dark);
+padding-bottom:90px;
+}
+
+.top-bar{
+background:#2E2E2E;
+color:#fff;
+text-align:center;
+padding:10px 12px;
+font-size:14px;
+font-weight:500;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+.header{
+padding:14px 18px;
+background:#fff;
+border-bottom:1px solid var(--border);
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo-wrap h1{
+font-family:'Playfair Display',serif;
+font-size:28px;
+letter-spacing:4px;
+color:#2E2E2E;
+line-height:1;
+}
+
+.logo-wrap p{
+font-size:12px;
+color:#7A8B6F;
+margin-top:2px;
+}
+
+.header-icons{
+display:flex;
+gap:10px;
+}
+
+.icon-btn{
+width:42px;
+height:42px;
+border-radius:50%;
+border:1px solid var(--border);
+background:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:20px;
+}
+
+.page-head{
+padding:28px 18px 18px;
+}
+
+.page-head h2{
+font-family:'Playfair Display',serif;
+font-size:42px;
+line-height:1.05;
+color:#1f1f1f;
+}
+
+.page-head p{
+font-size:15px;
+color:#777;
+margin-top:6px;
+}
+
+.product-grid{
+padding:0 18px 22px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:16px;
+}
+
+.product-card{
+background:#fff;
+border:1px solid var(--border);
+border-radius:22px;
+overflow:hidden;
+position:relative;
+box-shadow:0 8px 24px rgba(0,0,0,.05);
+display:flex;
+flex-direction:column;
+height:100%;
+}
+
+.product-img{
+width:100%;
+height:190px;
+object-fit:cover;
+display:block;
+}
+
+.remove-btn{
+position:absolute;
+top:10px;
+right:10px;
+width:42px;
+height:42px;
+border-radius:50%;
+border:1px solid rgba(255,255,255,.8);
+background:rgba(255,255,255,.9);
+font-size:22px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#8B6914;
+}
+
+.badge{
+position:absolute;
+top:10px;
+left:10px;
+background:#E7FAF3;
+color:#059669;
+font-size:11px;
+font-weight:800;
+padding:7px 12px;
+border-radius:999px;
+}
+
+.product-info{
+padding:14px;
+display:flex;
+flex-direction:column;
+flex:1;
+}
+
+.product-info h3{
+font-family:'Playfair Display',serif;
+font-size:20px;
+line-height:1.2;
+color:#2C1A0B;
+margin-bottom:6px;
+min-height:58px;
+display:flex;
+align-items:flex-start;
+}
+
+.product-info p{
+font-size:12px;
+color:#777;
+margin-bottom:8px;
+min-height:48px;
+}
+
+.rating{
+font-size:12px;
+color:#C6922E;
+margin-bottom:8px;
+min-height:32px;
+display:flex;
+align-items:center;
+}
+
+.price-row{
+display:flex;
+align-items:center;
+gap:8px;
+min-height:54px;
+margin-top:8px;
+margin-bottom:12px;
+}
+
+.price{
+font-size:20px;
+font-weight:800;
+color:#111827;
+}
+
+.mrp{
+font-size:13px;
+color:#999;
+text-decoration:line-through;
+}
+
+.off{
+font-size:12px;
+color:#059669;
+font-weight:700;
+min-width:60px;
+text-align:center;
+}
+
+.action-row{
+display:grid;
+grid-template-columns:1fr;
+gap:10px;
+margin-top:auto;
+}
+
+.view-btn,
+.cart-btn{
+width:100%;
+height:38px;
+border-radius:16px;
+font-weight:800;
+cursor:pointer;
+}
+
+.view-btn{
+border:1px solid #D4AF37;
+background:#fff;
+color:#8B6914;
+}
+
+.cart-btn{
+border:0;
+background:linear-gradient(135deg,#C9A227,#F1D981);
+color:#2E2E2E;
+}
+
+.empty-box{
+margin:40px 18px;
+background:#fff;
+border:1px solid var(--border);
+border-radius:28px;
+padding:34px 22px;
+text-align:center;
+box-shadow:0 8px 24px rgba(0,0,0,.04);
+}
+
+.empty-icon{
+font-size:48px;
+margin-bottom:12px;
+}
+
+.empty-box h3{
+font-family:'Playfair Display',serif;
+font-size:32px;
+color:#2C1A0B;
+margin-bottom:8px;
+}
+
+.empty-box p{
+font-size:14px;
+color:#777;
+line-height:1.6;
+margin-bottom:20px;
+}
+
+.explore-btn{
+border:0;
+height:46px;
+padding:0 28px;
+border-radius:999px;
+background:linear-gradient(135deg,#C9A227,#F1D981);
+font-weight:800;
+color:#2E2E2E;
+}
+
+.bottom-nav{
+position:fixed;
+left:0;
+right:0;
+bottom:0;
+height:72px;
+background:#fff;
+border-top:1px solid var(--border);
+display:grid;
+grid-template-columns:repeat(5,1fr);
+z-index:1000;
+}
+
+.nav-item{
+border:0;
+background:transparent;
+color:#777;
+font-size:13px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:4px;
+}
+
+.nav-item strong{
+font-size:22px;
+line-height:1;
+font-weight:400;
+}
+
+.nav-item.active{
+color:#9B7B22;
+font-weight:800;
+}
+
+.toast{
+position:fixed;
+left:50%;
+bottom:92px;
+transform:translateX(-50%) translateY(20px);
+background:#2E2E2E;
+color:#fff;
+padding:13px 20px;
+border-radius:999px;
+font-size:14px;
+opacity:0;
+pointer-events:none;
+transition:.3s;
+z-index:99999;
+}
+
+.toast.show{
+opacity:1;
+transform:translateX(-50%) translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+Shipping ₹40 below ₹499 • Free shipping on ₹499+
+</div>
+
+<div class="header">
+<div class="logo-wrap">
+<h1>MYRA</h1>
+<p>Make Home Everywhere</p>
+</div>
+
+<div class="header-icons">
+<div class="icon-btn" onclick="goFavourites()">♡</div>
+<div class="icon-btn" onclick="goCart()">🛒</div>
+<div class="icon-btn" onclick="goProfile()">👤</div>
+</div>
+</div>
+
+<div class="page-head">
+<h2>My Favourites</h2>
+<p>Your saved candles for later</p>
+</div>
+
+<div id="favArea"></div>
+
+<nav class="bottom-nav">
+<button class="nav-item" onclick="goHome()"><strong>🏠</strong>Home</button>
+<button class="nav-item" onclick="goCategory()"><strong>☰</strong>Categories</button>
+<button class="nav-item active" onclick="goFavourites()"><strong>♡</strong>Favourites</button>
+<button class="nav-item" onclick="goCart()"><strong>🛒</strong>Cart</button>
+<button class="nav-item" onclick="goProfile()"><strong>👤</strong>Profile</button>
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const demoProducts = JSON.parse(localStorage.getItem("myra_all_products") || "[]");
+
+function getFavIds(){
+return JSON.parse(localStorage.getItem("myra_favourites") || "[]");
+}
+
+function saveFavIds(items){
+localStorage.setItem("myra_favourites", JSON.stringify(items));
+}
+
+function renderFavourites(){
+const favArea = document.getElementById("favArea");
+const favIds = getFavIds();
+
+if(!favIds.length){
+favArea.innerHTML = `
+<div class="empty-box">
+<div class="empty-icon">♡</div>
+<h3>No favourites yet</h3>
+<p>Save candles you love and find them here later.</p>
+<button class="explore-btn" onclick="goCategory()">Explore Candles</button>
+</div>
+`;
+return;
+}
+
+const products = demoProducts.filter(p=>favIds.includes(p.product_id));
+
+if(!products.length){
+favArea.innerHTML = `
+<div class="empty-box">
+<div class="empty-icon">♡</div>
+<h3>No favourites found</h3>
+<p>Open candles and tap the heart to save your favourites.</p>
+<button class="explore-btn" onclick="goCategory()">Explore Candles</button>
+</div>
+`;
+return;
+}
+
+favArea.innerHTML = `
+<div class="product-grid">
+${products.map(p=>{
+const mrp = Number(p.mrp || p.price || 0);
+const price = Number(p.price || 0);
+const discount = mrp > price ? Math.round(((mrp - price) / mrp) * 100) : 0;
+
+return `
+<div class="product-card" onclick="openProductPopup('${p.product_id}')">
+<img class="product-img" src="${p.image1}" alt="${p.name}">
+<div class="badge">${p.label || "Favourite"}</div>
+<div class="remove-btn" onclick="event.stopPropagation(); removeFavourite('${p.product_id}')">♡</div>
+
+<div class="product-info">
+<h3>${p.name}</h3>
+<p>${p.fragrance || ""} • ${p.wax_type || ""}</p>
+
+<div class="rating">
+⭐ ${p.rating || "4.8"} (${p.reviews || "120"})
+</div>
+
+<div class="price-row">
+<div class="price">₹${price}</div>
+<div class="mrp">₹${mrp}</div>
+<div class="off">${discount}% OFF</div>
+</div>
+
+<div class="action-row">
+<button class="view-btn" onclick="event.stopPropagation(); openProductPopup('${p.product_id}')">View Details</button>
+<button class="cart-btn" onclick="event.stopPropagation(); addToCart('${p.product_id}')">Add To Cart</button>
+</div>
+</div>
+</div>
+`;
+}).join("")}
+</div>
+`;
+}
+
+function removeFavourite(productId){
+let favs = getFavIds();
+favs = favs.filter(id=>id !== productId);
+saveFavIds(favs);
+showToast("Removed from favourites");
+renderFavourites();
+}
+
+function addToCart(productId){
+const product = demoProducts.find(p=>p.product_id === productId);
+if(!product){
+showToast("Product not found");
+return;
+}
+
+let cart = JSON.parse(localStorage.getItem("myra_cart") || "[]");
+const existing = cart.find(i=>i.product_id === productId);
+
+if(existing){
+existing.qty = (existing.qty || 1) + 1;
+}else{
+cart.push({...product, qty:1});
+}
+
+localStorage.setItem("myra_cart", JSON.stringify(cart));
+showToast("Added to cart");
+}
+
+window.demoProducts = demoProducts;
+
+renderFavourites();
+</script>
+
+<script src="common.js?v=1"></script>
+<script src="productPopup.js?v=18"></script>
+
+</body>
+</html>
