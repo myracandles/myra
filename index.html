@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,10 +10,12 @@
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#2E2E2E">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <script src="config.js"></script>
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -20,13 +23,16 @@
 }
 
 :root{
+
   --cream:#FFF8F0;
   --warm:#FFFCF8;
   --gold:#C9A227;
   --sage:#7A8B6F;
+
   --dark:#2E2E2E;
   --text:#1F1F1F;
   --muted:#777;
+
   --border:#E8E0D4;
 }
 
@@ -35,317 +41,567 @@ html{
 }
 
 body{
+
   font-family:'Poppins',sans-serif;
+
   background:var(--cream);
+
   min-height:100vh;
+
   overflow-x:hidden;
+
   color:var(--text);
+
+  animation:fadeIn .45s ease;
+}
+
+/* PAGE ANIMATION */
+
+@keyframes fadeIn{
+
+  from{
+    opacity:0;
+    transform:translateY(8px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
 }
 
 .login-page{
+
   min-height:100vh;
+
   display:grid;
+
   grid-template-columns:1.45fr .8fr;
 }
 
-/* LEFT HERO IMAGE */
+/* LEFT HERO */
+
 .hero-side{
+
   position:relative;
+
   background:
-    linear-gradient(rgba(0,0,0,.16),rgba(0,0,0,.46)),
-    url("https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1800&auto=format&fit=crop")
-    center/cover no-repeat;
+
+  linear-gradient(
+  rgba(0,0,0,.22),
+  rgba(0,0,0,.55)
+  ),
+
+  url("https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1800&auto=format&fit=crop")
+  center/cover no-repeat;
+
   min-height:100vh;
 }
 
 .hero-brand{
+
   position:absolute;
+
   left:52px;
+
   bottom:52px;
+
   color:#fff;
 }
 
 .hero-brand h1{
-  font-family:'Playfair Display',serif;
+
+  font-family:'Cormorant Garamond',serif;
+
   font-size:82px;
+
   letter-spacing:5px;
+
   line-height:1;
 }
 
 .hero-brand p{
+
   margin-top:14px;
+
   font-size:20px;
+
   font-weight:400;
 }
 
-/* RIGHT LOGIN */
+/* RIGHT SIDE */
+
 .login-side{
+
   min-height:100vh;
+
   background:var(--warm);
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
+
   padding:42px;
 }
 
 .login-card{
+
   width:100%;
+
   max-width:430px;
+
   text-align:center;
 }
 
+/* LOGO */
+
 .logo-mark{
+
   width:118px;
+
   height:118px;
+
   margin:0 auto 18px;
+
   border-radius:50%;
-  background:linear-gradient(135deg,#C9A227,#F7E8A7);
+
+  background:
+  linear-gradient(
+  135deg,
+  #C9A227,
+  #F7E8A7
+  );
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
-  box-shadow:0 18px 36px rgba(201,162,39,.25);
+
   border:8px solid #fff;
+
+  box-shadow:
+  0 18px 36px rgba(201,162,39,.25),
+  0 0 50px rgba(201,162,39,.15);
 }
 
 .logo-mark span{
-  font-family:'Playfair Display',serif;
+
+  font-family:'Cormorant Garamond',serif;
+
   font-size:58px;
+
   color:#2E2E2E;
 }
 
 .brand-name{
-  font-family:'Playfair Display',serif;
+
+  font-family:'Cormorant Garamond',serif;
+
   font-size:58px;
+
   letter-spacing:5px;
+
   color:var(--dark);
+
   line-height:1;
 }
 
 .tagline{
+
   margin-top:10px;
+
   color:var(--sage);
+
   font-size:15px;
+
   letter-spacing:.5px;
 }
 
 .gold-line{
+
   width:160px;
+
   height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+
+  background:
+  linear-gradient(
+  90deg,
+  transparent,
+  var(--gold),
+  transparent
+  );
+
   margin:22px auto 32px;
 }
 
+/* WELCOME */
+
 .welcome h2{
-  font-family:'Playfair Display',serif;
+
+  font-family:'Cormorant Garamond',serif;
+
   font-size:34px;
+
   color:var(--dark);
+
   margin-bottom:8px;
 }
 
 .welcome p{
+
   color:var(--muted);
+
   font-size:15px;
+
   margin-bottom:30px;
 }
 
+/* INPUTS */
+
 .input-box{
+
   width:100%;
+
   height:60px;
+
   border:1px solid var(--border);
+
   border-radius:18px;
+
   background:#fff;
+
   display:flex;
+
   align-items:center;
+
   padding:0 18px;
+
   margin-bottom:17px;
+
   transition:.25s;
 }
 
 .input-box:focus-within{
+
   border-color:var(--gold);
-  box-shadow:0 0 0 5px rgba(201,162,39,.10);
+
+  box-shadow:
+  0 0 0 5px rgba(201,162,39,.10);
 }
 
 .input-box .icon{
+
   font-size:22px;
+
   margin-right:14px;
+
   color:var(--gold);
+
   line-height:1;
 }
 
 .input-box input{
+
   width:100%;
+
   border:0;
+
   outline:0;
+
   background:transparent;
+
   font-size:15.5px;
+
   color:var(--text);
+
   font-family:'Poppins',sans-serif;
 }
 
+/* BUTTONS */
+
 .signin-btn{
+
   width:100%;
+
   height:60px;
+
   border:0;
+
   border-radius:18px;
-  background:linear-gradient(135deg,#2E2E2E,#4A4A4A);
+
+  background:
+  linear-gradient(
+  135deg,
+  #2E2E2E,
+  #4A4A4A
+  );
+
   color:#fff;
+
   font-size:16px;
+
   font-weight:700;
+
   letter-spacing:2px;
+
   margin-top:8px;
+
   cursor:pointer;
-  box-shadow:0 18px 32px rgba(0,0,0,.18);
+
+  box-shadow:
+  0 18px 32px rgba(0,0,0,.18);
 }
 
 .signin-btn:active{
+
   transform:scale(.98);
 }
 
+.signup-btn{
+
+  width:100%;
+
+  height:58px;
+
+  border:0;
+
+  border-radius:18px;
+
+  background:#F7F0E6;
+
+  color:var(--dark);
+
+  font-size:15.5px;
+
+  font-weight:600;
+
+  cursor:pointer;
+}
 .divider{
+
   display:flex;
+
   align-items:center;
+
   gap:14px;
+
   margin:26px 0;
+
   color:#999;
+
   font-size:14px;
 }
 
 .divider::before,
 .divider::after{
+
   content:"";
+
   flex:1;
+
   height:1px;
+
   background:var(--border);
 }
 
-.signup-btn{
-  width:100%;
-  height:58px;
-  border:0;
-  border-radius:18px;
-  background:#F7F0E6;
-  color:var(--dark);
-  font-size:15.5px;
-  font-weight:600;
-  cursor:pointer;
-}
-
 .forgot-row{
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
+
   gap:18px;
+
   margin-top:26px;
 }
 
 .forgot-row button{
+
   border:0;
+
   background:transparent;
+
   color:#9B7B22;
+
   font-size:14px;
+
   font-weight:500;
+
   cursor:pointer;
 }
 
 .secure-text{
+
   margin-top:32px;
+
   color:#9B8C7A;
+
   font-size:13px;
+
   line-height:1.7;
 }
 
 /* TOAST */
+
 .toast{
+
   position:fixed;
+
   left:50%;
+
   bottom:28px;
+
   transform:translateX(-50%) translateY(20px);
+
   background:#2E2E2E;
+
   color:#fff;
+
   padding:13px 20px;
+
   border-radius:999px;
+
   font-size:14px;
+
   opacity:0;
+
   pointer-events:none;
+
   transition:.3s;
+
   z-index:99999;
+
   max-width:90%;
+
   text-align:center;
 }
 
 .toast.show{
+
   opacity:1;
+
   transform:translateX(-50%) translateY(0);
 }
 
-/* COMMON MODAL */
+/* MODAL */
+
 .app-modal{
+
   position:fixed;
+
   inset:0;
+
   background:rgba(17,24,39,.58);
+
   display:none;
+
   align-items:flex-end;
+
   justify-content:center;
+
   z-index:9999;
 }
 
 .app-modal.show{
+
   display:flex;
 }
 
 .modal-box{
+
   width:100%;
-  max-width:520px;
+
+  max-width:580px;
+
   background:#FFF8F0;
+
   border-radius:34px 34px 0 0;
-  padding:34px 24px 30px;
+
+  padding:40px 28px 34px;
+
   text-align:center;
-  box-shadow:0 -20px 60px rgba(0,0,0,.20);
+
+  box-shadow:
+  0 -20px 60px rgba(0,0,0,.20);
 }
 
 .modal-box h2{
-  font-family:'Playfair Display',serif;
-  font-size:34px;
+
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:36px;
+
   color:#2E2E2E;
+
   margin-bottom:10px;
 }
 
 .modal-box p{
+
   color:#6B7280;
+
   font-weight:600;
+
   margin-bottom:22px;
 }
 
 .modal-actions{
+
   display:grid;
+
   grid-template-columns:1fr 1fr;
+
   gap:14px;
+
   margin-top:18px;
 }
 
 .modal-actions button{
+
   height:56px;
+
   border-radius:18px;
+
   border:0;
+
   font-weight:800;
+
   font-size:16px;
+
   cursor:pointer;
 }
 
 .modal-actions button:first-child{
+
   background:#fff;
+
   color:#9B7B22;
+
   border:1px solid #E8E0D4;
 }
 
 .modal-actions button:last-child{
-  background:linear-gradient(135deg,#C9A227,#E7D08A);
+
+  background:
+  linear-gradient(
+  135deg,
+  #C9A227,
+  #E7D08A
+  );
+
   color:#2E2E2E;
 }
 
 /* TABLET */
+
 @media(max-width:1024px){
+
   .login-page{
     grid-template-columns:1fr 1fr;
   }
@@ -357,23 +613,28 @@ body{
   .login-side{
     padding:32px;
   }
+
 }
 
 /* MOBILE */
+
 @media(max-width:768px){
-  body{
-    background:var(--cream);
-  }
 
   .login-page{
+
     display:block;
+
     min-height:100vh;
+
     background:var(--cream);
   }
 
   .hero-side{
+
     min-height:310px;
+
     border-radius:0;
+
     background-position:center 38%;
   }
 
@@ -382,27 +643,44 @@ body{
   }
 
   .login-side{
+
     min-height:auto;
+
     padding:0 18px 30px;
+
     background:var(--cream);
+
     margin-top:-50px;
+
     position:relative;
+
     z-index:2;
   }
 
   .login-card{
+
     max-width:100%;
+
     background:rgba(255,253,251,.985);
+
     border-radius:42px 42px 28px 28px;
+
     padding:20px 20px 24px;
-    box-shadow:0 20px 50px rgba(0,0,0,.14);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.14);
   }
 
   .logo-mark{
+
     width:74px;
+
     height:74px;
+
     margin-top:-60px;
+
     margin-bottom:10px;
+
     border-width:7px;
   }
 
@@ -455,55 +733,8 @@ body{
   .secure-text{
     margin-top:20px;
   }
-
-  .modal-box{
-    width:92%;
-    border-radius:30px;
-    margin-bottom:28px;
-    padding:30px 22px 26px;
-  }
-
-  .modal-box h2{
-    font-size:31px;
-  }
 }
 
-/* SMALL MOBILE */
-@media(max-width:420px){
-  .hero-side{
-    min-height:300px;
-    background-position:center 38%;
-  }
-
-  .login-side{
-    margin-top:-50px;
-    padding:0 18px 28px;
-  }
-
-  .login-card{
-    border-radius:40px 40px 26px 26px;
-    padding:19px 18px 22px;
-  }
-
-  .logo-mark{
-    width:72px;
-    height:72px;
-    margin-top:-58px;
-  }
-
-  .brand-name{
-    font-size:36px;
-  }
-
-  .welcome h2{
-    font-size:26px;
-  }
-
-  .forgot-row{
-    gap:12px;
-    flex-wrap:wrap;
-  }
-}
 </style>
 </head>
 
@@ -512,13 +743,16 @@ body{
 <main class="login-page">
 
   <section class="hero-side">
+
     <div class="hero-brand">
       <h1>MYRA</h1>
       <p>Make Home Everywhere</p>
     </div>
+
   </section>
 
   <section class="login-side">
+
     <div class="login-card">
 
       <div class="logo-mark">
@@ -526,262 +760,625 @@ body{
       </div>
 
       <div class="brand-name">MYRA</div>
-      <div class="tagline">Make Home Everywhere</div>
+
+      <div class="tagline">
+        Make Home Everywhere
+      </div>
+
       <div class="gold-line"></div>
 
       <div class="welcome">
-        <h2>Welcome Back</h2>
-        <p>Sign in to continue shopping</p>
+        <h2>Welcome to MYRA</h2>
+        <p>Discover Handcrafted Luxury Candles</p>
       </div>
 
       <div class="input-box">
         <span class="icon">👤</span>
-        <input type="text" id="userName" placeholder="Enter your name" autocomplete="name">
+        <input
+          type="text"
+          id="userName"
+          placeholder="Enter your name"
+          autocomplete="name">
       </div>
 
       <div class="input-box">
         <span class="icon">📱</span>
-        <input type="tel" id="userPhone" placeholder="Enter your phone number" maxlength="10" autocomplete="tel">
+        <input
+          type="tel"
+          id="userPhone"
+          placeholder="Enter your phone number"
+          maxlength="10"
+          autocomplete="tel">
       </div>
 
-      <button class="signin-btn" onclick="handleLogin()">SIGN IN</button>
+      <button
+        class="signin-btn"
+        onclick="handleLogin()">
+        SIGN IN
+      </button>
 
       <div class="divider">
         <span>OR</span>
       </div>
 
-      <button class="signup-btn" onclick="openSignupModal()">New User ? Sign up</button>
+      <button
+        class="signup-btn"
+        onclick="openSignupModal()">
+        New User ? Sign Up
+      </button>
 
       <div class="forgot-row">
-        <button onclick="forgotName()">Forgot name?</button>
-        <button onclick="forgotPhone()">Forgot phone number?</button>
+        <button onclick="forgotName()">
+          Forgot name?
+        </button>
+
+        <button onclick="forgotPhone()">
+          Forgot phone number?
+        </button>
       </div>
 
       <div class="secure-text">
-        Secure • Private • Trusted<br>
-        Premium handcrafted scented candles
+        Handcrafted Luxury Candles
+        <br>
+        Made To Make Home Everywhere
       </div>
 
     </div>
+
   </section>
 
 </main>
+<!-- FORGOT MODAL -->
 
-<!-- Forgot Modal -->
 <div class="app-modal" id="forgotModal">
+
   <div class="modal-box">
-    <h2 id="forgotTitle">Forgot Name</h2>
-    <p id="forgotText">Enter your phone number to find your name.</p>
+
+    <h2 id="forgotTitle">
+      Forgot Name
+    </h2>
+
+    <p id="forgotText">
+      Enter your phone number to find your name.
+    </p>
 
     <div class="input-box">
       <span class="icon" id="forgotIcon">📱</span>
-      <input type="text" id="forgotInput" placeholder="Write your phone number">
+
+      <input
+        type="text"
+        id="forgotInput"
+        placeholder="Write your phone number">
     </div>
 
     <div class="modal-actions">
-      <button onclick="closeForgotModal()">Back</button>
-      <button onclick="findForgotData()" id="forgotFindBtn">Find Name</button>
+
+      <button onclick="closeForgotModal()">
+        Back
+      </button>
+
+      <button
+        onclick="findForgotData()"
+        id="forgotFindBtn">
+        Find Name
+      </button>
+
     </div>
+
   </div>
+
 </div>
 
-<!-- Signup Modal -->
+<!-- SIGNUP MODAL -->
+
 <div class="app-modal" id="signupModal">
+
   <div class="modal-box">
-    <h2>New User</h2>
-    <p>New user. Please confirm signup.</p>
+
+    <h2>
+      New User
+    </h2>
+
+    <p>
+      Create your MYRA account
+    </p>
 
     <div class="input-box">
       <span class="icon">👤</span>
-      <input type="text" id="signupName" placeholder="Write your name">
+
+      <input
+        type="text"
+        id="signupName"
+        placeholder="Write your name">
     </div>
 
     <div class="input-box">
       <span class="icon">📱</span>
-      <input type="tel" id="signupPhone" placeholder="Write your phone number" maxlength="10">
+
+      <input
+        type="tel"
+        id="signupPhone"
+        placeholder="Write your phone number"
+        maxlength="10">
     </div>
 
     <div class="modal-actions">
-      <button onclick="closeSignupModal()">Back to Login</button>
-      <button onclick="signupUser()">Sign Up</button>
+
+      <button onclick="closeSignupModal()">
+        Back
+      </button>
+
+      <button onclick="signupUser()">
+        Sign Up
+      </button>
+
     </div>
+
   </div>
+
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
+
+window.addEventListener("load",()=>{
+
+  if(
+    localStorage.getItem("myra_logged_in")==="true"
+  ){
+    window.location.href="home.html";
+  }
+
+});
+
 let forgotMode = "";
 
+/* TOAST */
+
 function showToast(message){
-  const toast = document.getElementById("toast");
+
+  const toast =
+  document.getElementById("toast");
+
   toast.innerText = message;
+
   toast.classList.add("show");
 
-  setTimeout(() => {
+  setTimeout(()=>{
+
     toast.classList.remove("show");
-  }, 2200);
+
+  },2000);
+
 }
+
+/* PHONE VALIDATION */
 
 function validatePhone(phone){
+
   return /^[6-9][0-9]{9}$/.test(phone);
+
 }
+
+/* STORAGE */
 
 function getStorageKeys(){
-  return CONFIG && CONFIG.STORAGE_KEYS ? CONFIG.STORAGE_KEYS : {
-    USER_NAME:"myra_user_name",
-    USER_PHONE:"myra_user_phone",
-    USER_ID:"myra_user_id"
-  };
+
+  return CONFIG &&
+         CONFIG.STORAGE_KEYS
+
+  ? CONFIG.STORAGE_KEYS
+
+  : {
+
+      USER_NAME:"myra_user_name",
+
+      USER_PHONE:"myra_user_phone",
+
+      USER_ID:"myra_user_id",
+
+      LOGGED_IN:"myra_logged_in"
+
+    };
+
 }
 
-function saveLogin(name, phone){
+/* SAVE USER */
+
+function saveLogin(name,phone){
+
   const storage = getStorageKeys();
 
-  localStorage.setItem(storage.USER_NAME, name);
-  localStorage.setItem(storage.USER_PHONE, phone);
-  localStorage.setItem(storage.USER_ID, "MYRA-" + phone);
+  localStorage.setItem(
+    storage.USER_NAME,
+    name
+  );
+
+  localStorage.setItem(
+    storage.USER_PHONE,
+    phone
+  );
+
+  localStorage.setItem(
+    storage.USER_ID,
+    "MYRA-" + phone
+  );
+
+  localStorage.setItem(
+    storage.LOGGED_IN,
+    "true"
+  );
+
 }
 
+/* LOGIN */
+
 function handleLogin(){
-  const name = document.getElementById("userName").value.trim();
-  const phone = document.getElementById("userPhone").value.trim();
+
+  const name =
+  document
+  .getElementById("userName")
+  .value
+  .trim();
+
+  const phone =
+  document
+  .getElementById("userPhone")
+  .value
+  .trim();
 
   if(!name){
-    showToast("Please enter your name");
+
+    showToast(
+      "Please enter your name"
+    );
+
     return;
   }
 
   if(!phone){
-    showToast("Please enter your phone number");
+
+    showToast(
+      "Please enter your phone number"
+    );
+
     return;
   }
 
   if(!validatePhone(phone)){
-    showToast("Please enter a valid phone number");
+
+    showToast(
+      "Please enter a valid phone number"
+    );
+
     return;
   }
 
-  saveLogin(name, phone);
+  saveLogin(name,phone);
 
-  showToast("Welcome to MYRA");
+  showToast(
+    "Welcome to MYRA"
+  );
 
-  setTimeout(() => {
-    window.location.href = "home.html";
-  }, 700);
+  setTimeout(()=>{
+
+    window.location.href =
+    "home.html";
+
+  },700);
+
 }
 
-/* Signup Popup */
+/* SIGNUP */
+
 function openSignupModal(){
-  document.getElementById("signupName").value = document.getElementById("userName").value.trim();
-  document.getElementById("signupPhone").value = document.getElementById("userPhone").value.trim();
-  document.getElementById("signupModal").classList.add("show");
+
+  document
+  .getElementById("signupName")
+  .value =
+  document
+  .getElementById("userName")
+  .value
+  .trim();
+
+  document
+  .getElementById("signupPhone")
+  .value =
+  document
+  .getElementById("userPhone")
+  .value
+  .trim();
+
+  document
+  .getElementById("signupModal")
+  .classList
+  .add("show");
+
 }
 
 function closeSignupModal(){
-  document.getElementById("signupModal").classList.remove("show");
+
+  document
+  .getElementById("signupModal")
+  .classList
+  .remove("show");
+
 }
 
 function signupUser(){
-  const name = document.getElementById("signupName").value.trim();
-  const phone = document.getElementById("signupPhone").value.trim();
+
+  const name =
+  document
+  .getElementById("signupName")
+  .value
+  .trim();
+
+  const phone =
+  document
+  .getElementById("signupPhone")
+  .value
+  .trim();
 
   if(!name){
-    showToast("Please enter your name");
+
+    showToast(
+      "Please enter your name"
+    );
+
     return;
   }
 
   if(!phone){
-    showToast("Please enter your phone number");
+
+    showToast(
+      "Please enter your phone number"
+    );
+
     return;
   }
 
   if(!validatePhone(phone)){
-    showToast("Please enter a valid phone number");
+
+    showToast(
+      "Please enter a valid phone number"
+    );
+
     return;
   }
 
-  saveLogin(name, phone);
+  saveLogin(name,phone);
 
-  document.getElementById("userName").value = name;
-  document.getElementById("userPhone").value = phone;
+  document
+  .getElementById("userName")
+  .value = name;
+
+  document
+  .getElementById("userPhone")
+  .value = phone;
 
   closeSignupModal();
-  showToast("Signup successful. Welcome to MYRA");
 
-  setTimeout(() => {
-    window.location.href = "home.html";
-  }, 700);
+  showToast(
+    "Signup successful. Welcome to MYRA"
+  );
+
+  setTimeout(()=>{
+
+    window.location.href =
+    "home.html";
+
+  },700);
+
 }
 
-/* Forgot Popup */
+/* FORGOT NAME */
+
 function forgotName(){
+
   forgotMode = "name";
-  document.getElementById("forgotTitle").innerText = "Forgot Name";
-  document.getElementById("forgotText").innerText = "Enter your phone number to find your name.";
-  document.getElementById("forgotIcon").innerText = "📱";
-  document.getElementById("forgotInput").value = "";
-  document.getElementById("forgotInput").placeholder = "Write your phone number";
-  document.getElementById("forgotFindBtn").innerText = "Find Name";
-  document.getElementById("forgotModal").classList.add("show");
+
+  document
+  .getElementById("forgotTitle")
+  .innerText =
+  "Forgot Name";
+
+  document
+  .getElementById("forgotText")
+  .innerText =
+  "Enter your phone number to find your name.";
+
+  document
+  .getElementById("forgotIcon")
+  .innerText = "📱";
+
+  document
+  .getElementById("forgotInput")
+  .value = "";
+
+  document
+  .getElementById("forgotInput")
+  .placeholder =
+  "Write your phone number";
+
+  document
+  .getElementById("forgotFindBtn")
+  .innerText =
+  "Find Name";
+
+  document
+  .getElementById("forgotModal")
+  .classList
+  .add("show");
+
 }
 
 function forgotPhone(){
+
   forgotMode = "phone";
-  document.getElementById("forgotTitle").innerText = "Forgot Phone";
-  document.getElementById("forgotText").innerText = "Enter your name to find your phone number.";
-  document.getElementById("forgotIcon").innerText = "👤";
-  document.getElementById("forgotInput").value = "";
-  document.getElementById("forgotInput").placeholder = "Write your name";
-  document.getElementById("forgotFindBtn").innerText = "Find Phone";
-  document.getElementById("forgotModal").classList.add("show");
+
+  document
+  .getElementById("forgotTitle")
+  .innerText =
+  "Forgot Phone";
+
+  document
+  .getElementById("forgotText")
+  .innerText =
+  "Enter your name to find your phone number.";
+
+  document
+  .getElementById("forgotIcon")
+  .innerText = "👤";
+
+  document
+  .getElementById("forgotInput")
+  .value = "";
+
+  document
+  .getElementById("forgotInput")
+  .placeholder =
+  "Write your name";
+
+  document
+  .getElementById("forgotFindBtn")
+  .innerText =
+  "Find Phone";
+
+  document
+  .getElementById("forgotModal")
+  .classList
+  .add("show");
+
 }
 
 function closeForgotModal(){
-  document.getElementById("forgotModal").classList.remove("show");
+
+  document
+  .getElementById("forgotModal")
+  .classList
+  .remove("show");
+
 }
 
 function findForgotData(){
-  const value = document.getElementById("forgotInput").value.trim();
-  const storage = getStorageKeys();
+
+  const value =
+  document
+  .getElementById("forgotInput")
+  .value
+  .trim();
+
+  const storage =
+  getStorageKeys();
 
   if(!value){
-    showToast("Please fill the box");
+
+    showToast(
+      "Please fill the box"
+    );
+
     return;
   }
 
-  if(forgotMode === "name"){
-    const savedPhone = localStorage.getItem(storage.USER_PHONE);
-    const savedName = localStorage.getItem(storage.USER_NAME);
+  if(forgotMode==="name"){
 
-    if(savedPhone && savedName && savedPhone === value){
-      showToast("Your saved name is " + savedName);
+    const savedPhone =
+    localStorage.getItem(
+      storage.USER_PHONE
+    );
+
+    const savedName =
+    localStorage.getItem(
+      storage.USER_NAME
+    );
+
+    if(
+      savedPhone &&
+      savedName &&
+      savedPhone===value
+    ){
+
+      showToast(
+        "Your saved name is " +
+        savedName
+      );
+
     }else{
-      showToast("No saved name found");
+
+      showToast(
+        "No saved name found"
+      );
+
     }
+
   }
 
-  if(forgotMode === "phone"){
-    const savedName = localStorage.getItem(storage.USER_NAME);
-    const savedPhone = localStorage.getItem(storage.USER_PHONE);
+  if(forgotMode==="phone"){
 
-    if(savedName && savedPhone && savedName.toLowerCase() === value.toLowerCase()){
-      showToast("Your saved phone is " + savedPhone);
+    const savedName =
+    localStorage.getItem(
+      storage.USER_NAME
+    );
+
+    const savedPhone =
+    localStorage.getItem(
+      storage.USER_PHONE
+    );
+
+    if(
+      savedName &&
+      savedPhone &&
+      savedName.toLowerCase()
+      ===
+      value.toLowerCase()
+    ){
+
+      showToast(
+        "Your saved phone is " +
+        savedPhone
+      );
+
     }else{
-      showToast("No saved phone found");
+
+      showToast(
+        "No saved phone found"
+      );
+
     }
+
   }
 
   closeForgotModal();
+
 }
 
-/* Mobile number only */
-document.getElementById("userPhone").addEventListener("input", function(){
-  this.value = this.value.replace(/\D/g,"").slice(0,10);
+/* PHONE ONLY */
+
+document
+.getElementById("userPhone")
+.addEventListener(
+"input",
+function(){
+
+  this.value =
+  this.value
+  .replace(/\D/g,"")
+  .slice(0,10);
+
 });
 
-document.getElementById("signupPhone").addEventListener("input", function(){
-  this.value = this.value.replace(/\D/g,"").slice(0,10);
+document
+.getElementById("signupPhone")
+.addEventListener(
+"input",
+function(){
+
+  this.value =
+  this.value
+  .replace(/\D/g,"")
+  .slice(0,10);
+
 });
 
 </script>
