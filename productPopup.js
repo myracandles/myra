@@ -807,7 +807,30 @@ function myraAddToCart(){
     return;
   }
 
-  createMyraToast(`${selectedQty} added to cart`);
+  const cartItem = {
+    ...currentProduct,
+    qty: selectedQty,
+    selected_quantity: selectedQty
+  };
+
+  let cart = JSON.parse(localStorage.getItem("myra_cart") || "[]");
+
+  const existingIndex = cart.findIndex(item => item.product_id === currentProduct.product_id);
+
+  if(existingIndex > -1){
+    cart[existingIndex] = cartItem;
+  }else{
+    cart.push(cartItem);
+  }
+
+  localStorage.setItem("myra_cart", JSON.stringify(cart));
+  localStorage.setItem("myra_cart_last_update", Date.now());
+
+  createMyraToast("Added to cart");
+
+  setTimeout(()=>{
+    location.href = "cart.html";
+  },700);
 }
 
 function myraBuyNow(){
