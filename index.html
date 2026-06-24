@@ -907,27 +907,13 @@ placeholder="Enter your name">
 
 <div class="input-box">
 
-<div class="input-box">
-
 <div class="input-icon">📱</div>
 
 <input
 type="tel"
-id="signupPhone"
-maxlength="10"
-placeholder="Phone Number">
-
-</div>
-
-<div class="input-box">
-
-<div class="input-icon">🎁</div>
-
-<input
-type="text"
-id="signupReferral"
-placeholder="Referral Code (Optional)"
-maxlength="20">
+id="userPhone"
+placeholder="Enter your phone number"
+maxlength="10">
 
 </div>
 
@@ -1175,32 +1161,7 @@ document.body.classList.remove("loading");
 }
 
 let forgotMode="";
-const savedReferral =
-localStorage.getItem(
-CONFIG.STORAGE_KEYS.REFERRAL_VISIT
-);
 
-window.addEventListener(
-"load",
-()=>{
-
-const referralInput =
-document.getElementById(
-"signupReferral"
-);
-
-if(
-savedReferral &&
-referralInput
-){
-
-referralInput.value =
-savedReferral;
-
-}
-
-}
-);
 function showToast(message){
 
 const toast=document.getElementById("toast");
@@ -1283,15 +1244,6 @@ return;
 
 saveUser(name,phone);
 
-if(referralCode){
-
-localStorage.setItem(
-"myra_referral_code",
-referralCode
-);
-
-}
-
 showToast(
 "✨ Welcome Back To MYRA"
 );
@@ -1345,13 +1297,7 @@ document
 .getElementById("signupPhone")
 .value
 .trim();
-const referralCode =
-document
-.getElementById(
-"signupReferral"
-)
-.value
-.trim();
+
 if(name.length<2){
 
 showToast(
