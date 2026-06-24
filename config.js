@@ -14,13 +14,34 @@ const CONFIG = {
   APP_TAGLINE: "Where Every Gift Tells A Story",
 
   APP_DESCRIPTION:
+  "Discover thoughtfully curated gifts, handcrafted treasures, luxury candles, elegant jewellery, and timeless art.",
+
+CURRENCY: "₹",
+
+COUNTRY: "India",
+
+LANGUAGE: "en-IN",
+
+/* ==========================================
+   SEO
+========================================== */
+
+SEO: {
+
+  SITE_NAME: "MYRA",
+
+  SITE_URL: "https://myragifts.in",
+
+  DEFAULT_TITLE:
+    "MYRA | Where Every Gift Tells A Story",
+
+  DEFAULT_DESCRIPTION:
     "Discover thoughtfully curated gifts, handcrafted treasures, luxury candles, elegant jewellery, and timeless art.",
 
-  CURRENCY: "₹",
+  DEFAULT_IMAGE:
+    "https://myragifts.in/assets/logo/og-image.jpg"
 
-  COUNTRY: "India",
-
-  LANGUAGE: "en-IN",
+},
 
   /* ==========================================
      PAGE LINKS
