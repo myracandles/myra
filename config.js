@@ -384,13 +384,19 @@ const CONFIG = {
       "Order placed successfully",
 
     REFERRAL_APPLIED:
-      "Referral code applied successfully",
+"Referral code applied successfully",
 
-    REFERRAL_PENDING:
-      "Reward will be credited after delivery",
+REFERRAL_PENDING:
+"Reward will be credited after delivery",
 
-    REFERRAL_SUCCESS:
-      "Referral reward credited successfully"
+REFERRAL_SUCCESS:
+"Referral reward credited successfully",
+
+REWARD_APPLIED:
+"MYRA Rewards applied successfully",
+
+REWARD_LIMIT_REACHED:
+"Maximum reward balance reached"
 
   }
 
