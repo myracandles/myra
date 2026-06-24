@@ -1,30 +1,42 @@
 /* ==========================================
 MYRA - COMMON.CSS
+Where Every Gift Tells A Story
 Luxury Design System
 ========================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
 
 :root{
 
-/* COLORS */
+/* BACKGROUNDS */
 
 --bg:#F8F5F0;
 --warm:#FFFCF8;
 --card:#FFFFFF;
 
+/* TEXT */
+
 --text:#2C1A0B;
 --muted:#777777;
 
---gold:#D4AF37;
+/* GOLD PALETTE */
+
+--gold:#C6A55C;
+--gold-light:#E6D2A0;
+--gold-dark:#A8841D;
+
+/* ACCENT */
+
 --sage:#7A8B6F;
+
+/* BORDER */
 
 --border:#E8E0D3;
 
 /* FONTS */
 
 --font-luxury:'Cormorant Garamond',serif;
---font-ui:'Poppins',sans-serif;
+--font-ui:'Cormorant Garamond',serif;
 
 /* RADIUS */
 
@@ -45,7 +57,7 @@ Luxury Design System
 0 8px 20px rgba(0,0,0,.06);
 
 --shadow-gold:
-0 0 35px rgba(212,175,55,.18);
+0 0 35px rgba(198,165,92,.18);
 
 --transition:.25s ease;
 }
@@ -70,12 +82,21 @@ color:var(--text);
 font-family:var(--font-ui);
 min-height:100vh;
 overflow-x:hidden;
-
 animation:fadeIn .45s ease;
 }
 
 /* ==========================================
-PAGE ANIMATION
+PAGE CONTAINER
+========================================== */
+
+.page-container{
+width:100%;
+max-width:1400px;
+margin:auto;
+}
+
+/* ==========================================
+ANIMATION
 ========================================== */
 
 @keyframes fadeIn{
@@ -118,8 +139,6 @@ padding:18px 22px;
 
 .logo-wrap h1{
 
-margin:0;
-
 font-family:var(--font-luxury);
 
 font-size:42px;
@@ -127,26 +146,23 @@ font-weight:600;
 
 letter-spacing:4px;
 
-color:var(--text);
-
 line-height:1;
+
+color:var(--text);
 }
 
 .logo-wrap p{
 
 margin-top:4px;
 
-font-size:12px;
+font-size:13px;
 
 color:var(--muted);
-
-letter-spacing:.3px;
 }
 
 .header-icons{
 
 display:flex;
-
 gap:12px;
 }
 
@@ -174,18 +190,20 @@ cursor:pointer;
 transition:var(--transition);
 }
 
-.header-icon:active{
+.header-icon:hover{
+transform:translateY(-2px);
+}
 
+.header-icon:active{
 transform:scale(.96);
 }
 
 /* ==========================================
-PAGE CONTENT
+CONTENT
 ========================================== */
 
 .page-content{
-
-padding-bottom:100px;
+padding-bottom:110px;
 }
 
 /* ==========================================
@@ -196,29 +214,27 @@ TYPOGRAPHY
 
 font-family:var(--font-luxury);
 
-font-size:42px;
+font-size:48px;
 
 line-height:1.05;
 
 color:var(--text);
-
-margin:0;
 }
 
 .section-subtitle{
 
 margin-top:8px;
 
-font-size:14px;
+font-size:16px;
+
+line-height:1.7;
 
 color:var(--muted);
-
-line-height:1.6;
 }
 
+.page-title,
 .product-title,
-.collection-title,
-.page-title{
+.collection-title{
 
 font-family:var(--font-luxury);
 
@@ -226,7 +242,7 @@ color:var(--text);
 }
 
 /* ==========================================
-CARD
+CARDS
 ========================================== */
 
 .card{
@@ -235,9 +251,20 @@ background:var(--card);
 
 border-radius:var(--radius-lg);
 
-box-shadow:var(--shadow-card);
-
 overflow:hidden;
+
+box-shadow:var(--shadow-card);
+}
+
+.glass-card{
+
+background:rgba(255,255,255,.85);
+
+backdrop-filter:blur(12px);
+
+border:1px solid rgba(255,255,255,.4);
+
+border-radius:var(--radius-lg);
 }
 
 /* ==========================================
@@ -265,11 +292,9 @@ color:#fff;
 
 font-family:var(--font-ui);
 
-font-size:15px;
+font-size:16px;
 
 font-weight:700;
-
-letter-spacing:.5px;
 
 cursor:pointer;
 
@@ -279,12 +304,10 @@ transition:var(--transition);
 }
 
 .btn-primary:hover{
-
 transform:translateY(-2px);
 }
 
 .btn-primary:active{
-
 transform:scale(.98);
 }
 
@@ -301,6 +324,8 @@ border-radius:var(--radius-sm);
 background:#F5EEE2;
 
 color:var(--text);
+
+font-size:16px;
 
 font-weight:600;
 
@@ -336,7 +361,7 @@ transition:var(--transition);
 border-color:var(--gold);
 
 box-shadow:
-0 0 0 5px rgba(212,175,55,.10);
+0 0 0 5px rgba(198,165,92,.10);
 }
 
 .input-box input{
@@ -351,13 +376,13 @@ background:transparent;
 
 font-family:var(--font-ui);
 
-color:var(--text);
+font-size:16px;
 
-font-size:15px;
+color:var(--text);
 }
 
 /* ==========================================
-GOLD DIVIDER
+DIVIDER
 ========================================== */
 
 .gold-line{
@@ -395,25 +420,22 @@ background:#2E2E2E;
 
 color:#fff;
 
-padding:14px 22px;
+padding:14px 24px;
 
 border-radius:999px;
 
-font-size:14px;
-
-white-space:nowrap;
+font-size:15px;
 
 opacity:0;
 
 pointer-events:none;
 
-transition:.25s ease;
+transition:.3s;
 
 z-index:99999;
 }
 
 .toast.show{
-
 opacity:1;
 }
 
@@ -439,7 +461,6 @@ z-index:9999;
 }
 
 .app-modal.show{
-
 display:flex;
 }
 
@@ -465,20 +486,20 @@ font-family:var(--font-luxury);
 
 font-size:38px;
 
-color:var(--text);
-
 margin-bottom:10px;
+
+color:var(--text);
 }
 
 .modal-box p{
 
-color:var(--muted);
+line-height:1.7;
 
-line-height:1.6;
+color:var(--muted);
 }
 
 /* ==========================================
-BOTTOM NAVIGATION
+BOTTOM NAV
 ========================================== */
 
 .bottom-nav{
@@ -520,13 +541,13 @@ justify-content:center;
 
 gap:4px;
 
-color:#666;
+text-decoration:none;
 
 font-size:12px;
 
-cursor:pointer;
+color:#666;
 
-text-decoration:none;
+cursor:pointer;
 
 transition:var(--transition);
 }
@@ -536,13 +557,11 @@ transition:var(--transition);
 font-size:22px;
 
 font-weight:400;
-
-transition:var(--transition);
 }
 
 .nav-item.active{
 
-color:var(--gold);
+color:var(--gold-dark);
 
 font-weight:700;
 }
@@ -564,6 +583,14 @@ display:none !important;
 text-align:center;
 }
 
+.cursor-pointer{
+cursor:pointer;
+}
+
+.gold-text{
+color:var(--gold-dark);
+}
+
 .mt-10{
 margin-top:10px;
 }
@@ -580,6 +607,10 @@ margin-top:30px;
 margin-bottom:20px;
 }
 
+.mb-30{
+margin-bottom:30px;
+}
+
 /* ==========================================
 TABLET
 ========================================== */
@@ -587,7 +618,7 @@ TABLET
 @media(max-width:1024px){
 
 .section-title{
-font-size:40px;
+font-size:42px;
 }
 
 }
@@ -603,7 +634,7 @@ font-size:38px;
 }
 
 .section-title{
-font-size:34px;
+font-size:36px;
 }
 
 .header{
@@ -612,7 +643,6 @@ padding:16px 18px;
 
 .modal-box{
 
-```
 width:94%;
 
 border-radius:34px;
@@ -620,8 +650,6 @@ border-radius:34px;
 margin-bottom:18px;
 
 padding:34px 24px 30px;
-```
-
 }
 
 }
@@ -633,11 +661,17 @@ SMALL MOBILE
 @media(max-width:420px){
 
 .logo-wrap h1{
-font-size:36px;
+font-size:34px;
 }
 
 .section-title{
 font-size:32px;
+}
+
+.header-icon{
+
+width:48px;
+height:48px;
 }
 
 }
