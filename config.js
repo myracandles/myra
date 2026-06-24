@@ -155,28 +155,36 @@ const CONFIG = {
 
   REFERRAL: {
 
-    ENABLED: true,
+  ENABLED: true,
 
-    REWARD_AMOUNT: 25,
+  REWARD_AMOUNT: 25,
 
-    MIN_ORDER_VALUE: 499,
+  MIN_ORDER_VALUE: 499,
 
-    REWARD_AFTER_STATUS: "Delivered",
+  REWARD_AFTER_STATUS: "Delivered",
 
-    FIRST_ORDER_ONLY: true,
+  FIRST_ORDER_ONLY: true,
 
-    MAX_REWARD_BALANCE: 500,
+  NEW_CUSTOMER_ONLY: true,
 
-    MAX_USAGE_PER_ORDER: 50,
+  MAX_REWARD_BALANCE: 250,
 
-    REWARD_EXPIRY_DAYS: 90,
+  MAX_USAGE_PER_ORDER: 25,
 
-    APPLY_AFTER_COUPON: true,
+  REWARD_EXPIRY_DAYS: 180,
 
-    SHARE_TAGLINE:
-      "Where Every Gift Tells A Story"
+  APPLY_AFTER_COUPON: true,
 
-  },
+  REWARD_STATUS: [
+    "Pending",
+    "Credited",
+    "Expired"
+  ],
+
+  SHARE_TAGLINE:
+    "Where Every Gift Tells A Story"
+
+},
 
   /* ==========================================
      PRODUCT RULES
